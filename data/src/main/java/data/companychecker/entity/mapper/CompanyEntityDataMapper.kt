@@ -23,7 +23,7 @@ class CompanyEntityDataMapper @Inject constructor() {
      * @return {@link [domain.companychecker.model.Company]} if valid {@link [data.companychecker.entity.CompanyEntity]}.
      */
     fun transformFromEntity(companyEntity: CompanyEntity) = with(companyEntity) {
-        Company(this.data)
+        Company(this.name, this.image, this.url)
     }
 
     /**
@@ -33,7 +33,7 @@ class CompanyEntityDataMapper @Inject constructor() {
      * @return {@link [data.companychecker.entity.CompanyEntity]} if valid {@link [domain.companychecker.interactor.Params]}.
      */
     fun transformToEntity(params: Params?) = with(params) {
-        CompanyEntity((this as CompanyEntity).data)
+        CompanyEntity((this as CompanyEntity).name, this.image, this.url)
     }
 
 }

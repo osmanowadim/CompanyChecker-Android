@@ -8,6 +8,6 @@ import io.reactivex.Single
  */
 interface CompanyRepository {
 
-    fun searchCompany(params: String): Single<List<Company>>
+    fun searchCompany(params: String?): Single<List<Company>>
 
 }

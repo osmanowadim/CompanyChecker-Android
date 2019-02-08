@@ -1,5 +1,7 @@
 package presentation.companychecker.model
 
 data class CompanyPresentationModel(
-    val data: String
+    val name: String?,
+    val image: String?,
+    val url: String?
 )

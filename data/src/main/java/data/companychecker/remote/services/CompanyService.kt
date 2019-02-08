@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface CompanyService {
 
-    @GET("api/rabotaua/search")
+    @GET("/api/company/search")
     fun searchCompany(@Query("term") companyName: String): Single<List<CompanyEntity>>
 
 }
