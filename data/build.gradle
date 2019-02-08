@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion rootProject.ext.compile_sdk
+    buildToolsVersion rootProject.ext.build_tools
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk
+        targetSdkVersion rootProject.ext.target_sdk
+
+        versionCode rootProject.ext.version_code
+    }
+
+}
+
+dependencies {
+
+    implementation project(':domain')
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    def dataTestDependencies = rootProject.ext.dataTestDependencies
+
+    implementation dataDependencies.kotlinStdlib
+
+    implementation dataDependencies.dagger
+    kapt dataDependencies.daggerCompiler
+    implementation dataDependencies.daggerAndroid
+    kapt dataDependencies.daggerAndroidProc
+
+    implementation dataDependencies.rxJava
+    implementation dataDependencies.rxAndroid
+
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitConverter
+    implementation dataDependencies.retrofitRxAdapter
+    implementation dataDependencies.okHttpLogInter
+    implementation dataDependencies.gson
+
+    implementation dataDependencies.androidAnnotations
+
+    testImplementation dataTestDependencies.junit
+    testImplementation dataTestDependencies.assertj
+    testImplementation dataTestDependencies.mockito
+    testImplementation dataTestDependencies.robolectric
+
+}
