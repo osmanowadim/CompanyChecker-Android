@@ -14,7 +14,6 @@ class MainPresenter @Inject constructor(
 ) : MainContract.Presenter {
 
     override fun start() {
-
     }
 
     override fun stop() {
@@ -29,7 +28,7 @@ class MainPresenter @Inject constructor(
                 override fun onSuccess(t: List<Company>) {
                     view.apply {
                         hideLoading()
-                        showFoundCompanies(t.map(mapperCompany::transformRatioToPresentationModel))
+                        showFoundCompanies(t.map(mapperCompany::transformCompanyToPresentationModel).toMutableList())
                     }
                 }
 

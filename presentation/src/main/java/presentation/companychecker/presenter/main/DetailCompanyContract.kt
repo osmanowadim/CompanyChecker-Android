@@ -3,15 +3,10 @@ package presentation.companychecker.presenter.main
 import currencyconverter.presentation.InternetDependsView
 import presentation.companychecker.BasePresenter
 import presentation.companychecker.BaseView
-import presentation.companychecker.model.CompanyPresentationModel
 
-interface MainContract {
+interface DetailCompanyContract {
 
     interface View : BaseView<Presenter>, InternetDependsView {
-
-        fun showFoundCompanies(companies: MutableList<CompanyPresentationModel>)
-
-        fun showFoundError()
 
         fun showLoading()
 
@@ -21,7 +16,7 @@ interface MainContract {
 
     interface Presenter : BasePresenter {
 
-        fun searchCompanies(searchText: String)
+        fun setCompanyName(companyName: String)
 
     }
 

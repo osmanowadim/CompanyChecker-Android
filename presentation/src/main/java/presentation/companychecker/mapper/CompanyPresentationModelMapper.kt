@@ -6,11 +6,11 @@ import javax.inject.Inject
 
 class CompanyPresentationModelMapper @Inject constructor() {
 
-    fun transformRatioToPresentationModel(company: Company) = with(company) {
+    fun transformCompanyToPresentationModel(company: Company) = with(company) {
         CompanyPresentationModel(this.name, this.image, this.url)
     }
 
-    fun transformPresentationModelToRatio(companyPresentationModel: CompanyPresentationModel) =
+    fun transformPresentationModelToCompany(companyPresentationModel: CompanyPresentationModel) =
         with(companyPresentationModel) {
             Company(this.name, this.image, this.url)
         }

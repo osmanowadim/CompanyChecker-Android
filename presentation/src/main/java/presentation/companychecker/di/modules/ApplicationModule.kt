@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import data.companychecker.entity.mapper.CompanyEntityDataMapper
+import data.companychecker.entity.mapper.DetailCompanyEntityDataMapper
 import data.companychecker.executor.JobExecutor
 import data.companychecker.remote.impl.CompanyRemoteImpl
 import data.companychecker.remote.services.CompanyService
@@ -49,8 +50,9 @@ open class ApplicationModule {
     @PerApplication
     fun provideCompanyRepository(
         factory: CompanyDataStoreFactory,
-        mapper: CompanyEntityDataMapper
-    ): CompanyRepository = CompanyDataRepository(factory, mapper)
+        mapperCompany: CompanyEntityDataMapper,
+        mapperDetailCompany: DetailCompanyEntityDataMapper
+    ): CompanyRepository = CompanyDataRepository(factory, mapperCompany, mapperDetailCompany)
 
     @Provides
     @PerApplication
