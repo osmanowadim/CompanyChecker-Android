@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#FFFFFF"
+        android:id="@+id/item_company_container"
+        android:layout_width="match_parent" android:layout_height="70dp">
+
+    <ImageView
+            android:id="@+id/item_company_iv"
+            android:layout_marginStart="10dp"
+            android:layout_width="60dp"
+            android:layout_centerVertical="true"
+            android:layout_height="60dp"
+            tools:src="@drawable/default_image"/>
+
+    <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/item_company_tv"
+            android:layout_width="match_parent"
+            android:textSize="24sp"
+            android:textColor="@color/colorAccent"
+            android:layout_height="match_parent"
+            android:gravity="start|center_vertical"
+            android:layout_toEndOf="@+id/item_company_iv"
+            tools:text="Incuube"/>
+
+</RelativeLayout>

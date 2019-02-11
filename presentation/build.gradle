@@ -59,6 +59,9 @@ dependencies {
     implementation presentationDependencies.rxBinding
     implementation presentationDependencies.rxBindingDesign
 
+    implementation presentationDependencies.glide
+    kapt presentationDependencies.glideAnnotation
+
     testImplementation presentationTestDependencies.junit
     testImplementation presentationTestDependencies.assertj
     testImplementation presentationTestDependencies.mockito
