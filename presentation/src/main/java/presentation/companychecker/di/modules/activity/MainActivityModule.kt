@@ -2,6 +2,7 @@ package presentation.companychecker.di.modules.activity
 
 import dagger.Module
 import dagger.Provides
+import domain.companychecker.interactor.company.SearchCompaniesUseCase
 import domain.companychecker.scopes.PerActivity
 import presentation.companychecker.mapper.CompanyPresentationModelMapper
 import presentation.companychecker.presenter.main.MainContract
@@ -19,9 +20,10 @@ open class MainActivityModule {
     @Provides
     fun providePresenter(
         view: MainContract.View,
-        mapperCompany: CompanyPresentationModelMapper
+        mapperCompany: CompanyPresentationModelMapper,
+        searchUseCase: SearchCompaniesUseCase
     ): MainContract.Presenter {
-        return MainPresenter(view, mapperCompany)
+        return MainPresenter(view, mapperCompany, searchUseCase)
     }
 
 }

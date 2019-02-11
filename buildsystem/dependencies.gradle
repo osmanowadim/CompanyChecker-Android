@@ -40,6 +40,8 @@ ext {
     //Kotlin mockito
     def mockitoKotlinVersion = '2.0.0-RC1'  /** https://github.com/nhaarman/mockito-kotlin */
 
+    def glideVersion = '4.7.1'      /** https://github.com/bumptech/glide */
+
     domainDependencies = [
             kotlinStdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
             javaxInject : "javax.inject:javax.inject:$javaxInjectVersion",
@@ -95,7 +97,9 @@ ext {
             rxAndroid        : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             rxKotlin         : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
             rxBinding        : "com.jakewharton.rxbinding2:rxbinding:$rxBindingVersion",
-            rxBindingDesign  : "com.jakewharton.rxbinding2:rxbinding-design:$rxBindingVersion"
+            rxBindingDesign  : "com.jakewharton.rxbinding2:rxbinding-design:$rxBindingVersion",
+            glide            : "com.github.bumptech.glide:glide:$glideVersion",
+            glideAnnotation  : "com.github.bumptech.glide:compiler:$glideVersion"
     ]
 
     presentationTestDependencies = [

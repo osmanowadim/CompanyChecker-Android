@@ -1,6 +1,7 @@
 package domain.companychecker.repository
 
 import domain.companychecker.model.Company
+import domain.companychecker.model.DetailCompany
 import io.reactivex.Single
 
 /**
@@ -8,6 +9,8 @@ import io.reactivex.Single
  */
 interface CompanyRepository {
 
-    fun searchCompany(params: String): Single<List<Company>>
+    fun searchCompany(params: String?): Single<List<Company>>
+
+    fun getDetailInfo(params: String?): Single<DetailCompany>
 
 }
