@@ -3,12 +3,14 @@ package presentation.companychecker.presenter.main
 import domain.companychecker.interactor.SingleUseCase
 import domain.companychecker.model.DetailCompany
 import io.reactivex.observers.DisposableSingleObserver
+import presentation.companychecker.mapper.DetailCompanyPresentationModelMapper
 import javax.inject.Inject
 
 
 class DetailCompanyPresenter @Inject constructor(
     private val view: DetailCompanyContract.View,
-    private val getDetailInfoUseCase: SingleUseCase<DetailCompany, String?>
+    private val getDetailInfoUseCase: SingleUseCase<DetailCompany, String?>,
+    private val mapper: DetailCompanyPresentationModelMapper
 ) : DetailCompanyContract.Presenter {
 
     private var companyName: String? = null
@@ -32,6 +34,7 @@ class DetailCompanyPresenter @Inject constructor(
 
                 override fun onSuccess(t: DetailCompany) {
                     view.hideLoading()
+                    view.showDetailCompanyInfo(mapper.transformDetailCompanyToPresentationModel(t))
                 }
 
                 override fun onError(e: Throwable) {

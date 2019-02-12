@@ -24,6 +24,7 @@ import presentation.companychecker.extension.show
 import presentation.companychecker.extension.snackbar
 import presentation.companychecker.model.CompanyPresentationModel
 import presentation.companychecker.presenter.main.MainContract
+import presentation.companychecker.ui.main.detail.companyDetailActivityIntent
 import javax.inject.Inject
 
 
