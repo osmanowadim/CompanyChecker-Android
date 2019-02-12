@@ -6,7 +6,7 @@ import domain.companychecker.scopes.PerActivity
 import presentation.companychecker.di.modules.activity.DetailCompanyActivityModule
 import presentation.companychecker.di.modules.activity.MainActivityModule
 import presentation.companychecker.di.modules.activity.SplashActivityModule
-import presentation.companychecker.ui.main.DetailCompanyActivity
+import presentation.companychecker.ui.main.detail.DetailCompanyActivity
 import presentation.companychecker.ui.main.MainActivity
 import presentation.companychecker.ui.splash.SplashActivity
 

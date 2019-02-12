@@ -6,5 +6,11 @@
     <string name="search_hint">Search by company name</string>
     <string name="voice_search_query">Voice search query</string>
     <string name="empty_company_name">Empty name</string>
+    <string name="dou_name">DOU.ua</string>
+    <string name="ebanoe_name">Ebanoe IT</string>
+    <string name="rating_place">№%d</string>
+    <string name="rating_score">Score = %s</string>
+    <string name="undefined">Undefined</string>
+    <string name="unlucky_message">Is it at least a company?</string>
 
 </resources>

@@ -4,9 +4,10 @@ import dagger.Module
 import dagger.Provides
 import domain.companychecker.interactor.company.GetDetailInfoAboutCompanyUseCase
 import domain.companychecker.scopes.PerActivity
+import presentation.companychecker.mapper.DetailCompanyPresentationModelMapper
 import presentation.companychecker.presenter.main.DetailCompanyContract
 import presentation.companychecker.presenter.main.DetailCompanyPresenter
-import presentation.companychecker.ui.main.DetailCompanyActivity
+import presentation.companychecker.ui.main.detail.DetailCompanyActivity
 
 @Module
 open class DetailCompanyActivityModule {
@@ -19,9 +20,10 @@ open class DetailCompanyActivityModule {
     @Provides
     fun providePresenter(
         view: DetailCompanyContract.View,
-        getDetailInfoUseCase: GetDetailInfoAboutCompanyUseCase
+        getDetailInfoUseCase: GetDetailInfoAboutCompanyUseCase,
+        mapper: DetailCompanyPresentationModelMapper
     ): DetailCompanyContract.Presenter {
-        return DetailCompanyPresenter(view, getDetailInfoUseCase)
+        return DetailCompanyPresenter(view, getDetailInfoUseCase, mapper)
     }
 
 }
