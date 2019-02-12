@@ -1,6 +1,7 @@
 package presentation.companychecker.extension
 
 import android.view.View
+import android.view.animation.TranslateAnimation
 
 fun View.show() {
     this.visibility = View.VISIBLE
