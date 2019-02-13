@@ -9,15 +9,15 @@
     <RelativeLayout
             android:id="@+id/activity_detail_company_progress"
             android:visibility="gone"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="#80EBEBEB"
+            android:layout_width="@dimen/activity_detail_company_progress_background_size"
+            android:layout_height="@dimen/activity_detail_company_progress_background_size"
+            android:background="@color/progress_background"
             android:layout_centerInParent="true">
 
         <ProgressBar
                 android:layout_centerInParent="true"
-                android:layout_width="75dp"
-                android:layout_height="75dp"/>
+                android:layout_width="@dimen/activity_detail_company_progress_size"
+                android:layout_height="@dimen/activity_detail_company_progress_size"/>
 
     </RelativeLayout>
 
@@ -33,22 +33,23 @@
             <LinearLayout
                     android:id="@+id/activity_detail_company_name_container"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="@dimen/activity_detail_company_name_container_height"
                     android:gravity="center_horizontal|center_vertical">
 
                 <ImageView
                         android:id="@+id/activity_detail_company_logo"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/activity_detail_company_logo_size"
+                        android:layout_height="@dimen/activity_detail_company_logo_size"
                         tools:src="@drawable/default_image"/>
 
                 <TextView
                         android:id="@+id/activity_detail_company_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="28sp"
+                        android:textSize="@dimen/activity_detail_company_name_textSize"
+                        android:gravity="center_vertical"
                         android:textColor="@color/colorAccent"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="@dimen/activity_detail_company_name_marginStart"
                         tools:text="Incuube"/>
 
             </LinearLayout>
@@ -57,12 +58,13 @@
                     android:id="@+id/activity_detail_company_rating_cardView"
                     android:layout_below="@+id/activity_detail_company_name_container"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="50dp"
-                    android:backgroundTint="#696969"
-                    app:cardCornerRadius="22dp">
+                    android:layout_height="@dimen/activity_detail_company_rating_cardView_height"
+                    android:layout_marginStart="@dimen/activity_detail_company_rating_cardView_marginEnd"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/activity_detail_company_rating_cardView_margin"
+                    android:layout_marginEnd="@dimen/activity_detail_company_rating_cardView_marginEnd"
+                    android:backgroundTint="@color/rating_background"
+                    app:cardCornerRadius="@dimen/activity_detail_company_rating_cardView_cornerRadius">
 
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -84,16 +86,16 @@
                                 android:id="@+id/activity_detail_company_rating_place_tv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="24sp"
-                                android:textColor="#FF0000"/>
+                                android:textSize="@dimen/activity_detail_company_rating_tv_textSize"
+                                android:textColor="@color/red_color"/>
 
                         <TextView
                                 android:id="@+id/activity_detail_company_rating_score_tv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="24sp"
-                                android:textColor="#00B200"
-                                android:layout_marginStart="20dp"/>
+                                android:textSize="@dimen/activity_detail_company_rating_tv_textSize"
+                                android:textColor="@color/score_color"
+                                android:layout_marginStart="@dimen/activity_detail_company_rating_score_tv_marginStart"/>
 
                     </LinearLayout>
 
@@ -106,11 +108,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/activity_detail_company_rating_cardView"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/activity_detail_company_cardView_margin"
+                    android:layout_marginTop="@dimen/activity_detail_company_cardView_marginTop"
+                    android:layout_marginEnd="@dimen/activity_detail_company_cardView_margin"
                     android:visibility="gone"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="@dimen/activity_detail_company_cardView_cornerRadius">
 
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -119,7 +121,7 @@
                     <RelativeLayout
                             android:id="@+id/activity_detail_company_dou_main_container"
                             android:layout_width="match_parent"
-                            android:layout_height="60dp">
+                            android:layout_height="@dimen/activity_detail_company_main_container_height">
 
                         <LinearLayout
                                 android:id="@+id/activity_detail_company_dou_main_ll_container"
@@ -133,20 +135,20 @@
                                     android:id="@+id/activity_detail_company_dou_main_count_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="24sp"
+                                    android:textSize="@dimen/activity_detail_company_main_count_tv_textSize"
                                     android:gravity="center"
                                     tools:text="10"
-                                    android:padding="3dp"
+                                    android:padding="@dimen/activity_detail_company_main_count_tv_padding"
                                     android:layout_gravity="center_vertical"/>
 
                             <TextView
                                     android:id="@+id/activity_detail_company_dou_main_name_tv"
                                     android:layout_width="wrap_content"
-                                    android:layout_marginStart="10dp"
+                                    android:layout_marginStart="@dimen/activity_detail_company_main_name_tv_margin"
                                     android:layout_gravity="center_vertical"
                                     android:layout_height="wrap_content"
-                                    android:textSize="30sp"
-                                    android:textColor="#000000"
+                                    android:textSize="@dimen/activity_detail_company_main_name_tv_textSize"
+                                    android:textColor="@android:color/black"
                                     android:text="@string/dou_name"/>
 
                         </LinearLayout>
@@ -155,8 +157,8 @@
                                 android:id="@+id/activity_detail_company_dou_main_arrow_iv"
                                 android:layout_alignParentEnd="true"
                                 android:layout_centerVertical="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="@dimen/activity_detail_company_main_arrow_iv_size"
+                                android:layout_height="@dimen/activity_detail_company_main_arrow_iv_size"
                                 android:src="@drawable/ic_arrow"/>
 
                     </RelativeLayout>
@@ -177,11 +179,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/activity_detail_company_dou_cardView"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="@dimen/activity_detail_company_cardView_margin"
+                    android:layout_marginTop="@dimen/activity_detail_company_cardView_marginTop"
                     android:visibility="gone"
-                    android:layout_marginEnd="20dp"
-                    app:cardCornerRadius="16dp">
+                    android:layout_marginEnd="@dimen/activity_detail_company_cardView_margin"
+                    app:cardCornerRadius="@dimen/activity_detail_company_cardView_cornerRadius">
 
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -190,7 +192,7 @@
                     <RelativeLayout
                             android:id="@+id/activity_detail_company_ebanoe_main_container"
                             android:layout_width="match_parent"
-                            android:layout_height="60dp">
+                            android:layout_height="@dimen/activity_detail_company_main_container_height">
 
                         <LinearLayout
                                 android:id="@+id/activity_detail_company_ebanoe_main_ll_container"
@@ -205,19 +207,19 @@
                                     android:layout_width="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:layout_height="wrap_content"
-                                    android:textSize="24sp"
-                                    android:padding="3dp"
+                                    android:textSize="@dimen/activity_detail_company_main_count_tv_textSize"
+                                    android:padding="@dimen/activity_detail_company_main_count_tv_padding"
                                     android:gravity="center"
                                     tools:text="10"/>
 
                             <TextView
                                     android:id="@+id/activity_detail_company_ebanoe_main_name_tv"
                                     android:layout_width="wrap_content"
-                                    android:layout_marginStart="10dp"
+                                    android:layout_marginStart="@dimen/activity_detail_company_main_name_tv_margin"
                                     android:layout_gravity="center_vertical"
                                     android:layout_height="wrap_content"
-                                    android:textSize="30sp"
-                                    android:textColor="#000000"
+                                    android:textSize="@dimen/activity_detail_company_main_name_tv_textSize"
+                                    android:textColor="@android:color/black"
                                     android:text="@string/ebanoe_name"/>
 
                         </LinearLayout>
@@ -226,8 +228,8 @@
                                 android:id="@+id/activity_detail_company_ebanoe_main_arrow_iv"
                                 android:layout_alignParentEnd="true"
                                 android:layout_centerVertical="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="@dimen/activity_detail_company_main_arrow_iv_size"
+                                android:layout_height="@dimen/activity_detail_company_main_arrow_iv_size"
                                 android:src="@drawable/ic_arrow"/>
 
                     </RelativeLayout>
