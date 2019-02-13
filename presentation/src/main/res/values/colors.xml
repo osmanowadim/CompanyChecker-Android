@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#2DC0DB</color>
     <color name="colorPrimaryDark">#017990</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="progress_background">#80EBEBEB</color>
+    <color name="rating_background">#696969</color>
+    <color name="score_color">#00B200</color>
+    <color name="red_color">#FF0000</color>
+
 </resources>
