@@ -10,22 +10,22 @@
     <RelativeLayout
             android:id="@+id/activity_main_progress"
             android:visibility="gone"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="#80EBEBEB"
+            android:layout_width="@dimen/activity_main_progress_background_size"
+            android:layout_height="@dimen/activity_main_progress_background_size"
+            android:background="@color/progress_background"
             android:layout_centerInParent="true">
 
         <ProgressBar
                 android:layout_centerInParent="true"
-                android:layout_width="75dp"
-                android:layout_height="75dp"/>
+                android:layout_width="@dimen/activity_main_progress_size"
+                android:layout_height="@dimen/activity_main_progress_size"/>
 
     </RelativeLayout>
 
     <android.support.v7.widget.CardView
             android:id="@+id/activity_main_search_view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/activity_main_search_view_height"
             android:visibility="visible">
 
         <android.support.constraint.ConstraintLayout
@@ -36,10 +36,10 @@
                     android:id="@+id/activity_main_query_input"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="@dimen/activity_main_query_input_margin"
+                    android:layout_marginTop="@dimen/activity_main_query_input_margin"
+                    android:layout_marginEnd="@dimen/activity_main_query_input_marginEnd"
+                    android:layout_marginBottom="@dimen/activity_main_query_input_margin"
                     android:background="@android:color/transparent"
                     android:hint="@string/search_hint"
                     android:imeOptions="actionDone"
@@ -52,7 +52,7 @@
                     android:id="@+id/activity_main_search_voice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="@dimen/activity_main_search_voice_marginEnd"
                     android:alpha="0.6"
                     app:layout_constraintBottom_toBottomOf="@+id/activity_main_query_input"
                     app:layout_constraintEnd_toStartOf="@+id/activity_main_search_clear"
@@ -63,7 +63,7 @@
                     android:id="@+id/activity_main_search_clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/activity_main_search_clear_marginEnd"
                     android:alpha="0.6"
                     app:layout_constraintBottom_toBottomOf="@+id/activity_main_query_input"
                     app:layout_constraintEnd_toEndOf="parent"

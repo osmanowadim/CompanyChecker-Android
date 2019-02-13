@@ -17,6 +17,9 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import me.toptas.fancyshowcase.FancyShowCaseView
+import me.toptas.fancyshowcase.FocusShape
+import me.toptas.fancyshowcase.listener.DismissListener
 import presentation.companychecker.R
 import presentation.companychecker.extension.animateChangingActivityFade
 import presentation.companychecker.extension.hide
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity(), HasActivityInjector, MainContract.View
 
         mainPresenter.start()
         init()
+        showSearchTutorialIfNeed()
     }
 
     override fun setPresenter(presenter: MainContract.Presenter) {
@@ -130,6 +134,40 @@ class MainActivity : AppCompatActivity(), HasActivityInjector, MainContract.View
             layoutManager = LinearLayoutManager(this.context)
             addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
+    }
+
+    private fun showSearchTutorialIfNeed() {
+        FancyShowCaseView.Builder(this)
+            .focusOn(activity_main_query_input)
+            .focusShape(FocusShape.ROUNDED_RECTANGLE)
+            .roundRectRadius(90)
+            .enableTouchOnFocusedView(true)
+            .enableAutoTextPosition()
+            .title(getString(R.string.search_tutorial_text))
+            .showOnce("company_search")
+            .dismissListener(object : DismissListener {
+                override fun onDismiss(id: String?) {
+                    showVoiceTutorialIfNeed()
+                }
+
+                override fun onSkipped(id: String?) {
+                    showVoiceTutorialIfNeed()
+                }
+            })
+            .build()
+            .show()
+    }
+
+    private fun showVoiceTutorialIfNeed() {
+        FancyShowCaseView.Builder(this)
+            .focusOn(activity_main_search_voice)
+            .focusShape(FocusShape.CIRCLE)
+            .enableTouchOnFocusedView(true)
+            .enableAutoTextPosition()
+            .title(getString(R.string.voice_tutorial_text))
+            .showOnce("voice_search")
+            .build()
+            .show()
     }
 
     private fun startVoiceRecognitionActivity() {
