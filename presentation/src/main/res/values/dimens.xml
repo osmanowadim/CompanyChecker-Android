@@ -24,12 +24,13 @@
     <dimen name="activity_detail_company_rating_score_tv_marginStart">20dp</dimen>
     <dimen name="activity_detail_company_cardView_margin">20dp</dimen>
     <dimen name="activity_detail_company_cardView_marginTop">5dp</dimen>
+    <dimen name="activity_detail_company_cardView_internal_margin">10dp</dimen>
     <dimen name="activity_detail_company_cardView_cornerRadius">16dp</dimen>
     <dimen name="activity_detail_company_main_container_height">60dp</dimen>
-    <dimen name="activity_detail_company_main_count_tv_textSize">24sp</dimen>
+    <dimen name="activity_detail_company_main_count_tv_textSize">20sp</dimen>
     <dimen name="activity_detail_company_main_count_tv_padding">3dp</dimen>
     <dimen name="activity_detail_company_main_name_tv_margin">10dp</dimen>
-    <dimen name="activity_detail_company_main_name_tv_textSize">30sp</dimen>
+    <dimen name="activity_detail_company_main_name_tv_textSize">24sp</dimen>
     <dimen name="activity_detail_company_main_arrow_iv_size">40dp</dimen>
 
     <!-- activity_main.xml -->

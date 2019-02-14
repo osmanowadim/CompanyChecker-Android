@@ -7,8 +7,6 @@ import presentation.companychecker.R
 
 fun AppCompatActivity.snackbar(view: View, message: Int) = Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
 
-fun AppCompatActivity.snackbar(view: View, message: String) = Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
-
 fun AppCompatActivity.animateChangingActivityFade() = overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
 
 fun AppCompatActivity.animateChangingActivitySlideIn() =
