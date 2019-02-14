@@ -16,6 +16,11 @@ class CompanyDataRepository @Inject constructor(
     private val mapperDetailCompany: DetailCompanyEntityDataMapper
 ) : CompanyRepository {
 
+    /**
+     * Return detail company [DetailCompany]
+     *
+     * @param params - is the company name for which detailed information is being searched
+     */
     override fun getDetailInfo(params: String?): Single<DetailCompany> {
         return params?.let {
             factory.retrieveRemoteDataStore()
@@ -30,6 +35,11 @@ class CompanyDataRepository @Inject constructor(
         } ?: Single.create<DetailCompany> { it.onError(Throwable("Request for get detail info about company is null")) }
     }
 
+    /**
+     * Return list of company [Company]
+     *
+     * @param params - is the request for search companies by name
+     */
     override fun searchCompany(params: String?): Single<List<Company>> {
         return params?.let {
             factory.retrieveRemoteDataStore()

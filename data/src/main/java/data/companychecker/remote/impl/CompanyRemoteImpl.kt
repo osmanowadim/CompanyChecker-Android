@@ -12,10 +12,20 @@ class CompanyRemoteImpl @Inject constructor(
     private val companyService: CompanyService
 ) : CompanyRemote {
 
+    /**
+     * Return detail company [DetailCompanyEntity]
+     *
+     * @param companyName - is the company name for which detailed information is being searched
+     */
     override fun getDetailInfo(companyName: String): Single<DetailCompanyEntity> {
         return companyService.getDetailInfo(companyName, "reviews,vacancies")
     }
 
+    /**
+     * Return company [CompanyEntity]
+     *
+     * @param companyName - is the company name which is being searched
+     */
     override fun searchCompany(companyName: String): Single<List<CompanyEntity>> {
         return companyService.searchCompany(companyName)
     }

@@ -23,6 +23,13 @@ class SplashActivity : AppCompatActivity(), HasActivityInjector, SplashContract.
     @Inject
     lateinit var splashPresenter: SplashContract.Presenter
 
+    /**
+     * Callback from lifecycle in {@link [Activity]}
+     *
+     * @param savedInstanceState Bundle of application
+     *
+     * call start() in {@link [SplashContract.Presenter]}
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -34,6 +41,10 @@ class SplashActivity : AppCompatActivity(), HasActivityInjector, SplashContract.
         splashPresenter = presenter
     }
 
+    /**
+     * Start {@link [presentation.companychecker.ui.main.MainActivity]}
+     * with handle of 3000 milliseconds
+     */
     override fun navigateToMain() {
         val handler = Handler()
         handler.postDelayed({
@@ -44,6 +55,11 @@ class SplashActivity : AppCompatActivity(), HasActivityInjector, SplashContract.
 
     }
 
+    /**
+     * Callback from lifecycle in {@link [Activity]}
+     *
+     * call stop() in {@link [SplashContract.Presenter]}
+     */
     override fun onDestroy() {
         super.onDestroy()
         splashPresenter.stop()

@@ -115,13 +115,15 @@
                     app:cardCornerRadius="@dimen/activity_detail_company_cardView_cornerRadius">
 
                 <RelativeLayout
+                        android:layout_marginBottom="@dimen/activity_detail_company_cardView_internal_margin"
+                        android:layout_marginTop="@dimen/activity_detail_company_cardView_internal_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     <RelativeLayout
                             android:id="@+id/activity_detail_company_dou_reviews_main_container"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/activity_detail_company_main_container_height">
+                            android:layout_height="wrap_content">
 
                         <LinearLayout
                                 android:id="@+id/activity_detail_company_dou_reviews_main_ll_container"
@@ -129,7 +131,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal"
                                 android:layout_toStartOf="@+id/activity_detail_company_dou_reviews_main_arrow_iv"
-                                android:layout_height="match_parent">
+                                android:layout_height="wrap_content">
 
                             <presentation.companychecker.ui.CircularTextView
                                     android:id="@+id/activity_detail_company_dou_reviews_main_count_tv"
@@ -186,13 +188,15 @@
                     app:cardCornerRadius="@dimen/activity_detail_company_cardView_cornerRadius">
 
                 <RelativeLayout
+                        android:layout_marginBottom="@dimen/activity_detail_company_cardView_internal_margin"
+                        android:layout_marginTop="@dimen/activity_detail_company_cardView_internal_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     <RelativeLayout
                             android:id="@+id/activity_detail_company_dou_vacancies_main_container"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/activity_detail_company_main_container_height">
+                            android:layout_height="wrap_content">
 
                         <LinearLayout
                                 android:id="@+id/activity_detail_company_dou_vacancies_main_ll_container"
@@ -200,7 +204,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal"
                                 android:layout_toStartOf="@+id/activity_detail_company_dou_vacancies_main_arrow_iv"
-                                android:layout_height="match_parent">
+                                android:layout_height="wrap_content">
 
                             <presentation.companychecker.ui.CircularTextView
                                     android:id="@+id/activity_detail_company_dou_vacancies_main_count_tv"
@@ -257,13 +261,15 @@
                     app:cardCornerRadius="@dimen/activity_detail_company_cardView_cornerRadius">
 
                 <RelativeLayout
+                        android:layout_marginBottom="@dimen/activity_detail_company_cardView_internal_margin"
+                        android:layout_marginTop="@dimen/activity_detail_company_cardView_internal_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     <RelativeLayout
                             android:id="@+id/activity_detail_company_ebanoe_main_container"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/activity_detail_company_main_container_height">
+                            android:layout_height="wrap_content">
 
                         <LinearLayout
                                 android:id="@+id/activity_detail_company_ebanoe_main_ll_container"
@@ -271,7 +277,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal"
                                 android:layout_toStartOf="@+id/activity_detail_company_ebanoe_main_arrow_iv"
-                                android:layout_height="match_parent">
+                                android:layout_height="wrap_content">
 
                             <presentation.companychecker.ui.CircularTextView
                                     android:id="@+id/activity_detail_company_ebanoe_main_count_tv"
