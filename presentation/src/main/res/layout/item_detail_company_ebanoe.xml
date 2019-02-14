@@ -5,7 +5,7 @@
         android:background="@android:color/white"
         android:id="@+id/item_detail_company_ebanoe_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_detail_company_ebanoe_container_height">
+        android:layout_height="wrap_content">
 
     <View
             android:id="@+id/item_text_separator"
@@ -23,7 +23,8 @@
             android:layout_width="wrap_content"
             android:textSize="@dimen/item_detail_company_ebanoe_text_textSize"
             android:textColor="@color/colorAccent"
-            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/item_detail_company_ebanoe_text_marginEnd"
             android:gravity="start|center_vertical"
             android:maxLines="2"

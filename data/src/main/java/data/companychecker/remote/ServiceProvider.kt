@@ -1,6 +1,7 @@
 package data.companychecker.remote
 
 import io.reactivex.schedulers.Schedulers
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,9 +26,23 @@ class ServiceProvider @Inject constructor() {
         .build()
 
     private fun createClient() = okhttp3.OkHttpClient.Builder()
+        .addInterceptor(makeApiKeyInterceptor())
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .connectTimeout(timeout, TimeUnit.SECONDS)
         .readTimeout(timeout, TimeUnit.SECONDS)
         .build()
+
+    private fun makeApiKeyInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            val request = chain.request()
+
+            val moreHeaders = request.headers().newBuilder()
+                .add("ApiKey", "0a222dc1-0dc5-48e1-9523-d2f49b9d4369")
+                .add("platform", "android")
+                .add("Content-Type", "application/json")
+
+            chain.proceed(request.newBuilder().headers(moreHeaders.build()).build())
+        }
+    }
 
 }
