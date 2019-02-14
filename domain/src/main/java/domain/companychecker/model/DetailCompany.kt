@@ -18,7 +18,8 @@ data class ArticlesBody(
 
 data class Dou(
     val rating: List<RatingBody>?,
-    val reviews: List<ReviewsBody>?
+    val reviews: List<ReviewsBody>?,
+    val vacancies: List<VacanciesBody>?
 )
 
 data class RatingBody(
@@ -35,6 +36,11 @@ data class ReviewsBody(
     val reviewsBodyEntity: List<Reviews>?
 )
 
+data class VacanciesBody(
+    val companyBodyEntity: CompanyBody?,
+    val vacanciesBodyEntity: List<Vacancies>?
+)
+
 data class CompanyBody(
     val name: String?,
     val image: String?,
@@ -47,4 +53,11 @@ data class Reviews(
     val review: String?,
     val url: String?,
     val supportCount: Int?
+)
+
+data class Vacancies(
+    val id: String?,
+    val title: String?,
+    val description: String?,
+    val url: String?
 )

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@android:color/white"
+        android:id="@+id/item_detail_vacancy_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_detail_vacancy_container_height">
+
+    <View
+            android:id="@+id/item_text_separator"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/default_item_text_separator_margin"
+            android:layout_marginEnd="@dimen/default_item_text_separator_margin"
+            android:layout_height="@dimen/default_item_text_separator_height"
+            android:alpha="0.1"
+            android:background="@android:color/black"/>
+
+    <TextView
+            android:id="@+id/item_detail_vacancy_text"
+            android:layout_marginStart="@dimen/item_detail_vacancy_text_margin"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/item_detail_vacancy_text_textSize"
+            android:textColor="@color/colorAccent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/item_detail_vacancy_text_marginEnd"
+            android:gravity="start|center_vertical"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Director, Head of Delivery Management Office (DMO)"/>
+
+    <ImageView
+            android:id="@+id/item_detail_vacancy_link_iv"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/item_detail_vacancy_link_iv_size"
+            android:layout_marginEnd="@dimen/item_detail_vacancy_link_iv_margin"
+            android:layout_height="@dimen/item_detail_vacancy_link_iv_size"
+            android:src="@drawable/ic_go_to"/>
+
+</RelativeLayout>

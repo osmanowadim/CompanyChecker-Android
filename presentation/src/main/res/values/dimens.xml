@@ -69,4 +69,12 @@
     <dimen name="item_detail_company_ebanoe_link_iv_size">30dp</dimen>
     <dimen name="item_detail_company_ebanoe_link_iv_margin">10dp</dimen>
 
+    <!--item_detail_vacancy.xml -->
+    <dimen name="item_detail_vacancy_container_height">45dp</dimen>
+    <dimen name="item_detail_vacancy_text_margin">10dp</dimen>
+    <dimen name="item_detail_vacancy_text_textSize">14sp</dimen>
+    <dimen name="item_detail_vacancy_text_marginEnd">45dp</dimen>
+    <dimen name="item_detail_vacancy_link_iv_size">30dp</dimen>
+    <dimen name="item_detail_vacancy_link_iv_margin">10dp</dimen>
+
 </resources>

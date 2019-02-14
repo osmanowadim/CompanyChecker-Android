@@ -2,11 +2,13 @@
 
     <string name="app_name" translatable="false">Company Checker</string>
     <string name="error_internet_connection">Oops! Something wrong with your connection!</string>
+    <string name="error_download_detail_company">Error while getting detailed information about the company</string>
     <string name="error_found_companies">Error trying to find companies</string>
     <string name="search_hint">Search by company name</string>
     <string name="voice_search_query">Voice search query</string>
     <string name="empty_company_name">Empty name</string>
-    <string name="dou_name" translatable="false">DOU.ua</string>
+    <string name="dou_reviews_name">DOU.ua (reviews)</string>
+    <string name="dou_vacancies_name">DOU.ua (vacancies)</string>
     <string name="ebanoe_name" translatable="false">Ebanoe IT</string>
     <string name="rating_place" translatable="false">№%d</string>
     <string name="rating_score">Score = %s</string>
@@ -14,7 +16,8 @@
     <string name="unlucky_message">Is it at least a company?</string>
     <string name="search_tutorial_text">Company search will start after entering at least 3 characters</string>
     <string name="voice_tutorial_text">You can search companies using voice</string>
-    <string name="dou_tutorial_text">Press on arrow to show or hide reviews from DOU.ua</string>
+    <string name="dou_reviews_tutorial_text">Press on arrow to show or hide reviews from DOU.ua</string>
+    <string name="dou_vacancies_tutorial_text">Press on arrow to show or hide vacancies from DOU.ua</string>
     <string name="ebanoe_tutorial_text">Press on arrow to show or hide articles from Ebanoe IT</string>
 
 </resources>

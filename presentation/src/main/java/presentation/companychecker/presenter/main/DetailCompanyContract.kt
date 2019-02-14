@@ -15,6 +15,8 @@ interface DetailCompanyContract {
 
         fun hideLoading()
 
+        fun showError()
+
     }
 
     interface Presenter : BasePresenter {
