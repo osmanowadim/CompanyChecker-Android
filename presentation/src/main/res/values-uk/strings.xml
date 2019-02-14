@@ -1,7 +1,10 @@
 <resources>
 
+    <string name="dou_reviews_name">DOU.ua (відгуки)</string>
+    <string name="dou_vacancies_name">DOU.ua (вакансії)</string>
     <string name="error_internet_connection">Ой! Щось не так з вашим з\'єднанням!</string>
     <string name="error_found_companies">Помилка при пошуку компаній</string>
+    <string name="error_download_detail_company">Помилка під час отримання детальної інформації про компанію</string>
     <string name="search_hint">Пошук за назвою компанії</string>
     <string name="voice_search_query">Голосовий пошук</string>
     <string name="empty_company_name">Пусте ім\'я</string>
@@ -10,7 +13,10 @@
     <string name="unlucky_message">Це хоча б компанія?</string>
     <string name="search_tutorial_text">Пошук компанії почнеться після введення не менше 3 символів</string>
     <string name="voice_tutorial_text">Ви можете шукати компанії, використовуючи голос</string>
-    <string name="dou_tutorial_text">Натисніть на стрілку, щоб показати або приховати відгуки від DOU.ua</string>
+    <string name="dou_reviews_tutorial_text">Натисніть на стрілку, щоб показати або приховати відгуки від DOU.ua
+    </string>
+    <string name="dou_vacancies_tutorial_text">Натисніть на стрілку, щоб показати або приховати вакансії від DOU.ua
+    </string>
     <string name="ebanoe_tutorial_text">Натисніть на стрілку, щоб показати або приховати статті від Ebanoe IT</string>
 
 </resources>

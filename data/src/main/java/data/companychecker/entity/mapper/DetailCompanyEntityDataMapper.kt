@@ -19,7 +19,7 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
     /**
      * Transform a {@link [data.companychecker.entity.DetailCompanyEntity]} into an {@link [domain.companychecker.model.DetailCompany]}.
      *
-     * @param companyEntity Object to be transformed.
+     * @param detailCompanyEntity Object to be transformed.
      * @return {@link [domain.companychecker.model.DetailCompany]} if valid {@link [data.companychecker.entity.DetailCompanyEntity]}.
      */
     fun transformFromEntity(detailCompanyEntity: DetailCompanyEntity) = with(detailCompanyEntity) {
@@ -61,7 +61,8 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
         with(dou) {
             DouEntity(
                 getListRatingBodyEntity(this?.rating),
-                getListReviewsBodyEntity(this?.reviews)
+                getListReviewsBodyEntity(this?.reviews),
+                getListVacanciesBodyEntity(this?.vacancies)
             )
         }
 
@@ -75,6 +76,16 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
                     it.score,
                     it.inCategory,
                     it.profilesCount
+                )
+            }
+        }
+
+    private fun getListVacanciesBodyEntity(vacanciesBodyList: List<VacanciesBody>?): List<VacanciesBodyEntity>? =
+        with(vacanciesBodyList) {
+            this?.map {
+                VacanciesBodyEntity(
+                    getCompanyBodyEntity(it.companyBodyEntity),
+                    getVacanciesEntity(it.vacanciesBodyEntity)
                 )
             }
         }
@@ -98,6 +109,18 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
                 this?.vacanciesUrl,
                 this?.reviewUrl
             )
+        }
+
+    private fun getVacanciesEntity(vacanciesBodyList: List<Vacancies>?): List<VacanciesEntity>? =
+        with(vacanciesBodyList) {
+            this?.map {
+                VacanciesEntity(
+                    it.id,
+                    it.title,
+                    it.description,
+                    it.url
+                )
+            }
         }
 
     private fun getReviewsEntity(reviewsList: List<Reviews>?): List<ReviewsEntity>? =
@@ -130,7 +153,8 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
         with(douEntity) {
             Dou(
                 getListRatingBody(this?.rating),
-                getListReviewsBody(this?.reviews)
+                getListReviewsBody(this?.reviews),
+                getListVacanciesBody(this?.vacancies)
             )
         }
 
@@ -158,6 +182,16 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
             }
         }
 
+    private fun getListVacanciesBody(vacanciesBodyListEntity: List<VacanciesBodyEntity>?): List<VacanciesBody>? =
+        with(vacanciesBodyListEntity) {
+            this?.map {
+                VacanciesBody(
+                    getCompanyBody(it.companyBodyEntity),
+                    getVacanciesList(it.vacanciesBodyEntity)
+                )
+            }
+        }
+
     private fun getCompanyBody(companyBodyEntity: CompanyBodyEntity?): CompanyBody? =
         with(companyBodyEntity) {
             CompanyBody(
@@ -167,6 +201,18 @@ class DetailCompanyEntityDataMapper @Inject constructor() {
                 this?.vacanciesUrl,
                 this?.reviewUrl
             )
+        }
+
+    private fun getVacanciesList(vacanciesyEntityList: List<VacanciesEntity>?): List<Vacancies>? =
+        with(vacanciesyEntityList) {
+            this?.map {
+                Vacancies(
+                    it.id,
+                    it.title,
+                    it.description,
+                    it.url
+                )
+            }
         }
 
     private fun getReviews(reviewsEntityList: List<ReviewsEntity>?): List<Reviews>? =

@@ -40,7 +40,8 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
         with(dou) {
             DouPresentationModel(
                 getListRatingBodyPresentationModel(this?.rating),
-                getListReviewsBodyPresentationModel(this?.reviews)
+                getListReviewsBodyPresentationModel(this?.reviews),
+                getListVacanciesBodyPresentationModel(this?.vacancies)
             )
         }
 
@@ -68,6 +69,16 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
             }
         }
 
+    private fun getListVacanciesBodyPresentationModel(vacanciesBodyList: List<VacanciesBody>?): List<VacanciesBodyPresentationModel>? =
+        with(vacanciesBodyList) {
+            this?.map {
+                VacanciesBodyPresentationModel(
+                    getCompanyBodyPresentationModel(it.companyBodyEntity),
+                    getVacanciesPresentationModel(it.vacanciesBodyEntity)
+                )
+            }
+        }
+
     private fun getCompanyBodyPresentationModel(companyBody: CompanyBody?): CompanyBodyPresentationModel? =
         with(companyBody) {
             CompanyBodyPresentationModel(
@@ -77,6 +88,18 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
                 this?.vacanciesUrl,
                 this?.reviewUrl
             )
+        }
+
+    private fun getVacanciesPresentationModel(vacanciesList: List<Vacancies>?): List<VacanciesPresentationModel>? =
+        with(vacanciesList) {
+            this?.map {
+                VacanciesPresentationModel(
+                    it.id,
+                    it.title,
+                    it.description,
+                    it.url
+                )
+            }
         }
 
     private fun getReviewsPresentationModel(reviewsList: List<Reviews>?): List<ReviewsPresentationModel>? =
@@ -109,7 +132,8 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
         with(dou) {
             Dou(
                 getListRatingBody(this?.rating),
-                getListReviewsBody(this?.reviews)
+                getListReviewsBody(this?.reviews),
+                getListVacanciesBody(this?.vacancies)
             )
         }
 
@@ -131,8 +155,18 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
         with(reviewsBodyListPresentationModel) {
             this?.map {
                 ReviewsBody(
-                    getCompanyBody(it.companyBodyEntity),
-                    getReviews(it.reviewsBodyEntity)
+                    getCompanyBody(it.companyBody),
+                    getReviews(it.reviewsBody)
+                )
+            }
+        }
+
+    private fun getListVacanciesBody(vacanciesBodyListPresentationModel: List<VacanciesBodyPresentationModel>?): List<VacanciesBody>? =
+        with(vacanciesBodyListPresentationModel) {
+            this?.map {
+                VacanciesBody(
+                    getCompanyBody(it.companyBody),
+                    getVacanciesList(it.vacanciesBody)
                 )
             }
         }
@@ -146,6 +180,18 @@ class DetailCompanyPresentationModelMapper @Inject constructor() {
                 this?.vacanciesUrl,
                 this?.reviewUrl
             )
+        }
+
+    private fun getVacanciesList(vacanciesPresentationModelList: List<VacanciesPresentationModel>?): List<Vacancies>? =
+        with(vacanciesPresentationModelList) {
+            this?.map {
+                Vacancies(
+                    it.id,
+                    it.title,
+                    it.description,
+                    it.url
+                )
+            }
         }
 
     private fun getReviews(reviewsPresentationModelList: List<ReviewsPresentationModel>?): List<Reviews>? =

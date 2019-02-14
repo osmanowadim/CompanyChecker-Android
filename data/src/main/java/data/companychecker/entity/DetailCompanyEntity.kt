@@ -26,7 +26,9 @@ data class DouEntity(
     @SerializedName("rating")
     val rating: List<RatingBodyEntity>?,
     @SerializedName("reviews")
-    val reviews: List<ReviewsBodyEntity>?
+    val reviews: List<ReviewsBodyEntity>?,
+    @SerializedName("vacancies")
+    val vacancies: List<VacanciesBodyEntity>?
 )
 
 data class RatingBodyEntity(
@@ -51,6 +53,13 @@ data class ReviewsBodyEntity(
     val reviewsBodyEntity: List<ReviewsEntity>?
 )
 
+data class VacanciesBodyEntity(
+    @SerializedName("company")
+    val companyBodyEntity: CompanyBodyEntity?,
+    @SerializedName("vacancies")
+    val vacanciesBodyEntity: List<VacanciesEntity>?
+)
+
 data class CompanyBodyEntity(
     @SerializedName("name")
     val name: String?,
@@ -71,4 +80,15 @@ data class ReviewsEntity(
     val url: String?,
     @SerializedName("supportCount")
     val supportCount: Int?
+)
+
+data class VacanciesEntity(
+    @SerializedName("id")
+    val id: String?,
+    @SerializedName("title")
+    val title: String?,
+    @SerializedName("description")
+    val description: String?,
+    @SerializedName("url")
+    val url: String?
 )
