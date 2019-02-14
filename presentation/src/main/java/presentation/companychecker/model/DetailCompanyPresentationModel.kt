@@ -16,7 +16,8 @@ data class ArticlesBodyPresentationModel(
 
 data class DouPresentationModel(
     val rating: List<RatingBodyPresentationModel>?,
-    val reviews: List<ReviewsBodyPresentationModel>?
+    val reviews: List<ReviewsBodyPresentationModel>?,
+    val vacancies: List<VacanciesBodyPresentationModel>?
 )
 
 data class RatingBodyPresentationModel(
@@ -29,8 +30,13 @@ data class RatingBodyPresentationModel(
 )
 
 data class ReviewsBodyPresentationModel(
-    val companyBodyEntity: CompanyBodyPresentationModel?,
-    val reviewsBodyEntity: List<ReviewsPresentationModel>?
+    val companyBody: CompanyBodyPresentationModel?,
+    val reviewsBody: List<ReviewsPresentationModel>?
+)
+
+data class VacanciesBodyPresentationModel(
+    val companyBody: CompanyBodyPresentationModel?,
+    val vacanciesBody: List<VacanciesPresentationModel>?
 )
 
 data class CompanyBodyPresentationModel(
@@ -45,4 +51,11 @@ data class ReviewsPresentationModel(
     val review: String?,
     val url: String?,
     val supportCount: Int?
+)
+
+data class VacanciesPresentationModel(
+    val id: String?,
+    val title: String?,
+    val description: String?,
+    val url: String?
 )

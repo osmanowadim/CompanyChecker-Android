@@ -13,7 +13,7 @@ class CompanyRemoteImpl @Inject constructor(
 ) : CompanyRemote {
 
     override fun getDetailInfo(companyName: String): Single<DetailCompanyEntity> {
-        return companyService.getDetailInfo(companyName, "reviews")
+        return companyService.getDetailInfo(companyName, "reviews,vacancies")
     }
 
     override fun searchCompany(companyName: String): Single<List<CompanyEntity>> {

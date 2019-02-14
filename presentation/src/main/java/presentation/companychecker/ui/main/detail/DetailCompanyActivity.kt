@@ -87,6 +87,10 @@ class DetailCompanyActivity : AppCompatActivity(), HasActivityInjector, DetailCo
         finish()
     }
 
+    override fun showError() {
+        snackbar(activity_detail_company_container, R.string.error_download_detail_company)
+    }
+
     override fun showDetailCompanyInfo(detailCompanyPresentationModel: DetailCompanyPresentationModel) {
         detailCompanyPresentationModel.dou?.rating?.let {
             if (it.count() > 1) {
@@ -106,12 +110,21 @@ class DetailCompanyActivity : AppCompatActivity(), HasActivityInjector, DetailCo
             ?.place?.let { activity_detail_company_rating_place_tv.text = getString(R.string.rating_place, it) }
         detailCompanyPresentationModel.dou?.rating?.firstOrNull()
             ?.score?.let { activity_detail_company_rating_score_tv.text = getString(R.string.rating_score, it) }
-        detailCompanyPresentationModel.dou?.reviews?.firstOrNull()?.reviewsBodyEntity?.count()?.let {
+
+        detailCompanyPresentationModel.dou?.reviews?.firstOrNull()?.reviewsBody?.count()?.let {
             if (it != 0) {
-                activity_detail_company_dou_main_count_tv.text = it.toString()
-                changeVisibilityForView(activity_detail_company_dou_cardView, true)
+                activity_detail_company_dou_reviews_main_count_tv.text = it.toString()
+                changeVisibilityForView(activity_detail_company_dou_reviews_cardView, true)
             } else {
-                changeVisibilityForView(activity_detail_company_dou_cardView, false)
+                changeVisibilityForView(activity_detail_company_dou_reviews_cardView, false)
+            }
+        }
+        detailCompanyPresentationModel.dou?.vacancies?.firstOrNull()?.vacanciesBody?.count()?.let {
+            if (it != 0) {
+                activity_detail_company_dou_vacancies_main_count_tv.text = it.toString()
+                changeVisibilityForView(activity_detail_company_dou_vacancies_cardView, true)
+            } else {
+                changeVisibilityForView(activity_detail_company_dou_vacancies_cardView, false)
             }
         }
         detailCompanyPresentationModel.ebanoe?.articles?.count()?.let {
@@ -122,21 +135,39 @@ class DetailCompanyActivity : AppCompatActivity(), HasActivityInjector, DetailCo
                 changeVisibilityForView(activity_detail_company_ebanoe_cardView, false)
             }
         }
-        activity_detail_company_dou_cardView.setOnClickListener {
-            if (activity_detail_company_dou_recyclerView.visibility == View.VISIBLE) {
-                showChangeArrowAnimation(activity_detail_company_dou_main_arrow_iv, false)
-                changeVisibilityForView(activity_detail_company_dou_recyclerView, false)
+
+        activity_detail_company_dou_reviews_cardView.setOnClickListener {
+            if (activity_detail_company_dou_reviews_recyclerView.visibility == View.VISIBLE) {
+                showChangeArrowAnimation(activity_detail_company_dou_reviews_main_arrow_iv, false)
+                changeVisibilityForView(activity_detail_company_dou_reviews_recyclerView, false)
             } else {
-                activity_detail_company_dou_recyclerView.apply {
+                activity_detail_company_dou_reviews_recyclerView.apply {
                     layoutManager = LinearLayoutManager(this.context)
-                    detailCompanyPresentationModel.dou?.reviews?.firstOrNull()?.reviewsBodyEntity?.let { reviews ->
+                    detailCompanyPresentationModel.dou?.reviews?.firstOrNull()?.reviewsBody?.let { reviews ->
                         adapter = DetailCompanyDouAdapter(reviews) { url ->
                             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                         }
                     }
                 }
-                showChangeArrowAnimation(activity_detail_company_dou_main_arrow_iv, true)
-                changeVisibilityForView(activity_detail_company_dou_recyclerView, true)
+                showChangeArrowAnimation(activity_detail_company_dou_reviews_main_arrow_iv, true)
+                changeVisibilityForView(activity_detail_company_dou_reviews_recyclerView, true)
+            }
+        }
+        activity_detail_company_dou_vacancies_cardView.setOnClickListener {
+            if (activity_detail_company_dou_vacancies_recyclerView.visibility == View.VISIBLE) {
+                showChangeArrowAnimation(activity_detail_company_dou_vacancies_main_arrow_iv, false)
+                changeVisibilityForView(activity_detail_company_dou_vacancies_recyclerView, false)
+            } else {
+                activity_detail_company_dou_vacancies_recyclerView.apply {
+                    layoutManager = LinearLayoutManager(this.context)
+                    detailCompanyPresentationModel.dou?.vacancies?.firstOrNull()?.vacanciesBody?.let { vacancies ->
+                        adapter = VacanciesDouAdapter(vacancies) { url ->
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                        }
+                    }
+                }
+                showChangeArrowAnimation(activity_detail_company_dou_vacancies_main_arrow_iv, true)
+                changeVisibilityForView(activity_detail_company_dou_vacancies_recyclerView, true)
             }
         }
         activity_detail_company_ebanoe_cardView.setOnClickListener {
@@ -161,18 +192,40 @@ class DetailCompanyActivity : AppCompatActivity(), HasActivityInjector, DetailCo
     }
 
     private fun showTutorialsIfNeed() {
-        if (activity_detail_company_dou_cardView.visibility == View.VISIBLE) showDouTutorial()
+        if (activity_detail_company_dou_reviews_cardView.visibility == View.VISIBLE) showDouArticlesTutorial()
+        else if (activity_detail_company_dou_vacancies_cardView.visibility == View.VISIBLE) showDouVacanciesTutorial()
         else if (activity_detail_company_ebanoe_cardView.visibility == View.VISIBLE) showEbanoeTutorial()
     }
 
-    private fun showDouTutorial() {
+    private fun showDouArticlesTutorial() {
         FancyShowCaseView.Builder(this)
-            .focusOn(activity_detail_company_dou_main_arrow_iv)
+            .focusOn(activity_detail_company_dou_reviews_main_arrow_iv)
             .focusShape(FocusShape.CIRCLE)
             .enableTouchOnFocusedView(true)
             .enableAutoTextPosition()
-            .title(getString(R.string.dou_tutorial_text))
+            .title(getString(R.string.dou_reviews_tutorial_text))
             .showOnce("dou_reviews")
+            .dismissListener(object : DismissListener {
+                override fun onDismiss(id: String?) {
+                    if (activity_detail_company_dou_vacancies_cardView.visibility == View.VISIBLE) showDouVacanciesTutorial()
+                }
+
+                override fun onSkipped(id: String?) {
+                    if (activity_detail_company_dou_vacancies_cardView.visibility == View.VISIBLE) showDouVacanciesTutorial()
+                }
+            })
+            .build()
+            .show()
+    }
+
+    private fun showDouVacanciesTutorial() {
+        FancyShowCaseView.Builder(this)
+            .focusOn(activity_detail_company_dou_vacancies_main_arrow_iv)
+            .focusShape(FocusShape.CIRCLE)
+            .enableTouchOnFocusedView(true)
+            .enableAutoTextPosition()
+            .title(getString(R.string.dou_vacancies_tutorial_text))
+            .showOnce("dou_vacancies")
             .dismissListener(object : DismissListener {
                 override fun onDismiss(id: String?) {
                     if (activity_detail_company_ebanoe_cardView.visibility == View.VISIBLE) showEbanoeTutorial()
@@ -193,7 +246,7 @@ class DetailCompanyActivity : AppCompatActivity(), HasActivityInjector, DetailCo
             .enableTouchOnFocusedView(true)
             .enableAutoTextPosition()
             .title(getString(R.string.ebanoe_tutorial_text))
-            .showOnce("ebanoe_reviews")
+            .showOnce("ebanoe_articles")
             .build()
             .show()
     }

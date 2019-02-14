@@ -39,6 +39,7 @@ class DetailCompanyPresenter @Inject constructor(
 
                 override fun onError(e: Throwable) {
                     view.hideLoading()
+                    view.showError()
                 }
             }, companyName)
         } else {
